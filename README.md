@@ -1,1 +1,1 @@
-# budgetapp-fe
+# Budget app FE
