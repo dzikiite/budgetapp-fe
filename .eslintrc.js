@@ -8,7 +8,7 @@ module.exports = {
         ecmaFeatures: {
             jsx: true,
         },
-        ecmaVersion: 12,
+        ecmaVersion: 13,
         sourceType: 'module',
     },
     plugins: ['react', 'prettier'],
@@ -21,5 +21,17 @@ module.exports = {
                 unnamedComponents: 'arrow-function',
             },
         ],
+        'import/prefer-default-export': 'off',
+        'no-unused-vars': 'warn',
+        'react/require-default-props': 'off',
+        'react/jsx-props-no-spreading': 'off',
+        'no-console': 'off',
+    },
+    settings: {
+        'import/resolver': {
+            jsconfig: {
+                config: 'jsconfig.json',
+            },
+        },
     },
 };
