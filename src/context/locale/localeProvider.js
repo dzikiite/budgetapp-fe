@@ -1,6 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, {
+    useEffect,
+    useState,
+    useContext,
+    createContext,
+    useMemo,
+    useCallback,
+} from 'react';
 import { IntlProvider } from 'react-intl';
 import { node } from 'prop-types';
+import { useHistory } from 'react-router-dom';
 
 import BrowserPersistence from 'utils/browserPersistence';
 
@@ -8,8 +16,12 @@ import { LOCALES } from 'utils/constants';
 
 const storage = BrowserPersistence();
 
+const LocaleContext = createContext(null);
+
 const LocaleProvider = ({ children }) => {
     const [messages, setMessages] = useState(null);
+
+    const history = useHistory();
 
     const locale = storage.getItem('locale') || LOCALES.pl;
 
@@ -39,18 +51,44 @@ const LocaleProvider = ({ children }) => {
         }
     };
 
+    const switchAppLocale = useCallback(
+        (localeName) => {
+            const isValidLocale = Object.values(LOCALES).some(
+                (validLocale) => validLocale === locale
+            );
+
+            if (!isValidLocale) {
+                throw new Error('Invalid locale name');
+            }
+
+            storage.setItem('locale', localeName);
+
+            history.go(0);
+        },
+        [history]
+    );
+
+    const contextValue = useMemo(
+        () => ({ switchAppLocale }),
+        [switchAppLocale]
+    );
+
     return (
-        <IntlProvider
-            key={locale}
-            locale={locale}
-            defaultLocale={LOCALES.pl}
-            messages={messages}
-            onError={handleIntlError}
-        >
-            {children}
-        </IntlProvider>
+        <LocaleContext.Provider value={contextValue}>
+            <IntlProvider
+                key={locale}
+                locale={locale}
+                defaultLocale={LOCALES.pl}
+                messages={messages}
+                onError={handleIntlError}
+            >
+                {children}
+            </IntlProvider>
+        </LocaleContext.Provider>
     );
 };
+
+export const useLocaleContext = () => useContext(LocaleContext);
 
 export default LocaleProvider;
 
