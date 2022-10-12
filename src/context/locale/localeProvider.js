@@ -8,7 +8,7 @@ import React, {
 } from 'react';
 import { IntlProvider } from 'react-intl';
 import { node } from 'prop-types';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import BrowserPersistence from 'utils/browserPersistence';
 
@@ -21,7 +21,7 @@ const LocaleContext = createContext(null);
 const LocaleProvider = ({ children }) => {
     const [messages, setMessages] = useState(null);
 
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const locale = storage.getItem('locale') || LOCALES.pl;
 
@@ -63,9 +63,9 @@ const LocaleProvider = ({ children }) => {
 
             storage.setItem('locale', localeName);
 
-            history.go(0);
+            navigate(0);
         },
-        [history]
+        [navigate]
     );
 
     const contextValue = useMemo(
