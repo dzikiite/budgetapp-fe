@@ -1,5 +1,11 @@
 import React from 'react';
 
-const App = () => <div className="App">Init project</div>;
+import Logo from 'components/Logo';
+
+const App = () => (
+    <div className="App">
+        <Logo />
+    </div>
+);
 
 export default App;

@@ -1,0 +1,27 @@
+:root {
+    /* Colors */
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-navy-blue: #1030ac;
+    --color-violet: #6428c1;
+
+    --color-gray-100: #000511;
+
+    /* Gradients */
+    --gradient-violet: linear-gradient(
+        187.25deg,
+        #6076ff -123.82%,
+        #281a79 14.38%,
+        #210152 71.61%
+    );
+
+    /* Z-Indexes */
+    --zindex-hidden: -1;
+    --zindex-zero: 0;
+    --zindex-standard: 1;
+    --zindex-up: 2;
+    --zindex-menu: 5;
+    --zindex-tooltip: 7;
+    --zindex-modal: 10;
+    --zindex-tooltip-modal: 15;
+}

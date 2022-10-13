@@ -4,7 +4,10 @@
     "paths": {
       "src/*": ["./src/*"],
       "context/*": ["./src/context/*"],
-      "utils/*": ["./src/utils/*"]
+      "utils/*": ["./src/utils/*"],
+      "styles/*": ["./src/styles/*"],
+      "components/*": ["./src/components/*"],
+      "static/*": ["./src/static/*"]
     }
   }
 }
