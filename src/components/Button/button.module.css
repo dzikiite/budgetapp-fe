@@ -1,0 +1,114 @@
+.root {
+    composes: root from 'styles/click.module.css';
+
+    --background: var(--gradient-violet);
+    --border: var(--gradient-violet);
+    --textColor: var(--color-white);
+    --spinnerColor: var(--color-white);
+
+    background: var(--background);
+    border-color: var(--border);
+    border-radius: 6px;
+    border-style: solid;
+    border-width: 2px;
+    color: var(--textColor);
+    max-width: 100%;
+    width: 100%;
+    min-height: 37px;
+    position: relative;
+    outline: none;
+    padding: 0 27px 0;
+    font-size: 1.4rem;
+}
+
+.root:disabled {
+    pointer-events: none;
+}
+
+.rootBusy {
+    composes: root;
+}
+
+.spinnerHidden {
+    display: block;
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 15px;
+    height: 15px;
+    border: 3px solid transparent;
+    border-top-color: var(--spinnerColor);
+    border-radius: 50%;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    animation: loadingSpinner 0.8s var(--anim-standard) infinite;
+}
+
+.spinner {
+    composes: spinnerHidden;
+
+    opacity: 1;
+    visibility: visible;
+}
+
+.content {
+    align-items: center;
+    display: inline-grid;
+    gap: 0.56rem;
+    grid-auto-flow: column;
+    justify-content: center;
+    justify-items: center;
+    filter: none;
+}
+
+.rootBusy .content {
+    opacity: 0;
+}
+
+.root_violetGradientAppearance {
+    composes: root;
+}
+
+.root_navyBlueAppearance {
+    composes: root;
+
+    --background: var(--color-navy-blue);
+    --border: var(--color-navy-blue);
+
+    border-radius: 40px;
+    min-height: 47px;
+    padding: 0 34px 0;
+    font-size: 1.8rem;
+}
+
+.root_violetOutlineAppearance {
+    composes: root;
+
+    --background: transparent;
+    --border: var(--color-violet);
+
+    border-radius: 40px;
+    min-height: 47px;
+    padding: 0 34px 0;
+    font-size: 1.8rem;
+    filter: drop-shadow(0px 2px 6px var(--color-violet));
+}
+
+@media (min-width: 768px) {
+    .root {
+        width: auto;
+    }
+}
+
+@keyframes loadingSpinner {
+    from {
+        transform: translate(-50%, -50%) rotate(0turn);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(1turn);
+    }
+}

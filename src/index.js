@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import CombineProviders from 'utils/combineProviders';
 import AppContextProvider from 'context/app/appContext';
-import LocaleProvider from 'context/locale/localeProvider';
+import LocaleProvider from 'context/locale/localeContext';
 
 import App from './App';
 

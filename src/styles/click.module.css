@@ -1,0 +1,9 @@
+.root {
+    pointer-events: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+}

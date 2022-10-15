@@ -24,4 +24,16 @@
     --zindex-tooltip: 7;
     --zindex-modal: 10;
     --zindex-tooltip-modal: 15;
+
+    /* Animations */
+    --anim-bounce: cubic-bezier(0.5, 1.8, 0.9, 0.8);
+    --anim-in: cubic-bezier(0, 0, 0.2, 1);
+    --anim-out: cubic-bezier(0.4, 0, 1, 1);
+    --anim-standard: cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Font weights */
+    --font-weight-300: 300;
+    --font-weight-400: 400;
+    --font-weight-600: 600;
+    --font-weight-700: 700;
 }
