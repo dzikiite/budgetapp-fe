@@ -1,3 +1,17 @@
 {
-    "logo.altMessage": "BudgetApp Logo"
+    "global.email": "email",
+    "global.password": "hasło",
+    "guestTemplate.register": "Zarejestruj się",
+    "guestTemplate.signIn": "Zaloguj się",
+    "homepage.awareness": "Świadomość",
+    "homepage.control": "Kontrola",
+    "homepage.graphicAlt": "Grafike ze znakiem logo",
+    "homepage.savings": "Oszczędności",
+    "homepage.subtitle": "Dołącz do swiadomej społeczności!",
+    "homepage.title": "Zadbaj o swoje finanse",
+    "logo.altMessage": "BudgetApp Logo",
+    "signIn.createAccount": "Zarejestruj się",
+    "signIn.forgotPassword": "Zapomniałeś hasła?",
+    "signIn.subtitle": "Witaj! Zaloguj się do swiata finansów!",
+    "signIn.title": "Logowanie"
 }

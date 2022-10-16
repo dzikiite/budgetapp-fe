@@ -1,0 +1,57 @@
+.root {
+    width: 40%;
+    padding: 79px 57px 65px;
+    border-radius: 24px;
+    background: var(--color-gray-100);
+    box-shadow: 2px 1px 36px 17px rgba(38, 43, 80, 0.47);
+    position: relative;
+}
+
+.title {
+    color: var(--color-white);
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+.subtitle {
+    color: var(--color-gray-400);
+    font-size: 1.6rem;
+    font-weight: var(--font-weight-300);
+    margin: 10px 0 40px;
+}
+
+.links {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+.registerLink {
+    color: var(--color-gray-400);
+    text-decoration: underline;
+    font-size: 1.1rem;
+}
+
+.registerLink:hover,
+.registerLink:active,
+.registerLink:focus {
+    color: var(--color-white);
+}
+
+.forgotPasswordLink {
+    color: var(--color-violet-light);
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+.forgotPasswordLink:hover,
+.forgotPasswordLink:active,
+.forgotPasswordLink:focus {
+    color: var(--color-violet);
+}
+
+.button {
+    display: flex;
+    justify-content: flex-end;
+}

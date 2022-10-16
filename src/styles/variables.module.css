@@ -4,8 +4,11 @@
     --color-black: #000000;
     --color-navy-blue: #1030ac;
     --color-violet: #6428c1;
+    --color-violet-light: #6076ff;
 
     --color-gray-100: #000511;
+    --color-gray-300: #494949;
+    --color-gray-400: #b7b7b7;
 
     /* Gradients */
     --gradient-violet: linear-gradient(

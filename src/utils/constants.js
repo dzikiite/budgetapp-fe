@@ -1,5 +1,8 @@
 export const PATHS = {
     home: '/',
+    signIn: '/sign-in',
+    createAccount: '/create-account',
+    forgotPassword: '/forgot-password',
 };
 
 export const LOCALES = {

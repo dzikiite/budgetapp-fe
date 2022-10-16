@@ -1,0 +1,30 @@
+.root {
+    width: 100vw;
+    height: 100vh;
+    background: url('static/images/main-background.png');
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 45px 100px 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+
+.logo {
+    display: block;
+}
+
+.buttons {
+    display: grid;
+    column-gap: 17px;
+    grid-template-columns: max-content max-content;
+}

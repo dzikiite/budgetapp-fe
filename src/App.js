@@ -1,17 +1,46 @@
-import React from 'react';
+import React, { cloneElement } from 'react';
+import { useRoutes, useLocation } from 'react-router-dom';
 
-import Logo from 'components/Logo';
-import Button from 'components/Button';
+import GuestTemplate from 'components/RootTemplates/Guest';
 
-import { BUTTONS_APPEARANCE } from 'utils/constants';
+import Homepage from 'pages/Homepage';
+import SignIn from 'pages/SignIn';
+import CreateAccount from 'pages/CreateAccount';
+import ForgotPassword from 'pages/ForgotPassword';
 
-const App = () => (
-    <div className="App">
-        <Logo />
-        <Button appearance={BUTTONS_APPEARANCE.violetOutline}>
-            Zaloguj się
-        </Button>
-    </div>
-);
+import { PATHS } from 'utils/constants';
+
+const App = () => {
+    const location = useLocation();
+
+    const guestElement = useRoutes([
+        {
+            path: PATHS.home,
+            element: <Homepage />,
+        },
+        {
+            path: PATHS.signIn,
+            element: <SignIn />,
+        },
+        {
+            path: PATHS.createAccount,
+            element: <CreateAccount />,
+        },
+        {
+            path: PATHS.forgotPassword,
+            element: <ForgotPassword />,
+        },
+    ]);
+
+    if (!guestElement) return null;
+
+    return (
+        <div className="App">
+            <GuestTemplate>
+                {cloneElement(guestElement, { key: location.pathname })}
+            </GuestTemplate>
+        </div>
+    );
+};
 
 export default App;

@@ -44,14 +44,14 @@ const Button = (props) => {
 
     return (
         <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileFocus={{ scale: 1.05 }}
+            whileHover={{ scale: 1.06 }}
+            whileFocus={{ scale: 1.06 }}
             ref={buttonRef}
             className={rootClassName}
-            // eslint-disable-next-line react/button-has-type
-            type={type}
             {...buttonProps}
             {...restProps}
+            // eslint-disable-next-line react/button-has-type
+            type={type}
         >
             <span className={spinnerClassName} />
             <span className={classes.content}>{children}</span>
