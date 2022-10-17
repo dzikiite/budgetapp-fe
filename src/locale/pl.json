@@ -1,5 +1,11 @@
 {
+    "createAccount.button": "Zarejestruj",
+    "createAccount.doYouHaveAccount": "Masz już konto?",
+    "createAccount.subtitle": "Witaj! Zarejestruj się do swiata finansów!",
+    "createAccount.title": "Rejestracja",
     "global.email": "email",
+    "global.firstname": "imię",
+    "global.lastname": "nazwisko",
     "global.password": "hasło",
     "guestTemplate.register": "Zarejestruj się",
     "guestTemplate.signIn": "Zaloguj się",

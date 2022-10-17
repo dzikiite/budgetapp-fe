@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
@@ -21,7 +20,7 @@ const SignIn = () => {
     const { onSubmit } = useSignIn();
 
     return (
-        <motion.div className={classes.root}>
+        <div className={classes.root}>
             <h3 className={classes.title}>
                 <FormattedMessage
                     id="signIn.title"
@@ -37,7 +36,10 @@ const SignIn = () => {
             <Form onSubmit={onSubmit} handleSubmit={handleSubmit}>
                 <TextInput
                     id="email"
-                    label="Email"
+                    label={formatMessage({
+                        id: 'global.email',
+                        defaultMessage: 'email',
+                    })}
                     register={register}
                     placeholder={formatMessage({
                         id: 'global.email',
@@ -47,7 +49,10 @@ const SignIn = () => {
                 <TextInput
                     type="password"
                     id="password"
-                    label="Hasło"
+                    label={formatMessage({
+                        id: 'global.password',
+                        defaultMessage: 'hasło',
+                    })}
                     register={register}
                     placeholder={formatMessage({
                         id: 'global.password',
@@ -83,7 +88,7 @@ const SignIn = () => {
                     </Button>
                 </div>
             </Form>
-        </motion.div>
+        </div>
     );
 };
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useIntl, FormattedMessage } from 'react-intl';
+import { motion } from 'framer-motion';
 
 import homepageGraphic from 'static/images/homepage-graphic.png';
 import classes from './homepage.module.css';
@@ -10,13 +11,20 @@ const Homepage = () => {
     return (
         <div className={classes.root}>
             <div className={classes.graphicWrapper}>
-                <img
+                <motion.img
                     className={classes.graphic}
                     src={homepageGraphic}
                     alt={formatMessage({
                         id: 'homepage.graphicAlt',
                         defaultMessage: 'Grafika ze znakiem z logo',
                     })}
+                    initial={{ rotate: 0, scale: 1 }}
+                    animate={{ rotate: -5, scale: 1.05 }}
+                    transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        repeatType: 'mirror',
+                    }}
                 />
             </div>
             <div className={classes.info}>

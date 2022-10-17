@@ -13,5 +13,11 @@
     "signIn.createAccount": "Create account",
     "signIn.forgotPassword": "Forgot password?",
     "signIn.subtitle": "Hello! Sign in to the finance world",
-    "signIn.title": "Sign in"
+    "signIn.title": "Sign in",
+    "createAccount.title": "Create account",
+    "createAccount.subtitle": "Hello! Register to the finance world!",
+    "global.firstname": "firstname",
+    "global.lastname": "lastname",
+    "createAccount.doYouHaveAccount": "Do you have an account?",
+    "createAccount.button": "Register"
 }

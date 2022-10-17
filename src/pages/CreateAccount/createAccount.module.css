@@ -1,0 +1,23 @@
+.root {
+    composes: root from 'pages/SignIn/signIn.module.css';
+}
+
+.title {
+    composes: title from 'pages/SignIn/signIn.module.css';
+}
+
+.subtitle {
+    composes: subtitle from 'pages/SignIn/signIn.module.css';
+}
+
+.links {
+    composes: links from 'pages/SignIn/signIn.module.css';
+}
+
+.signInLink {
+    composes: forgotPasswordLink from 'pages/SignIn/signIn.module.css';
+}
+
+.button {
+    composes: button from 'pages/SignIn/signIn.module.css';
+}
