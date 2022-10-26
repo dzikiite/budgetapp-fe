@@ -14,10 +14,10 @@ import classes from './signIn.module.css';
 
 const SignIn = () => {
     // TODO Handle errors
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, reset } = useForm();
     const { formatMessage } = useIntl();
 
-    const { onSubmit } = useSignIn();
+    const { onSubmit } = useSignIn({ resetForm: reset });
 
     return (
         <div className={classes.root}>

@@ -3,6 +3,7 @@ export const PATHS = {
     signIn: '/sign-in',
     createAccount: '/create-account',
     forgotPassword: '/forgot-password',
+    dashboard: '/dashboard',
 };
 
 export const LOCALES = {

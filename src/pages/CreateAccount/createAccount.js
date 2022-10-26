@@ -14,10 +14,10 @@ import classes from './createAccount.module.css';
 
 const CreateAccount = () => {
     // TODO Handle errors
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, reset } = useForm();
     const { formatMessage } = useIntl();
 
-    const { onSubmit } = useCreateAccount();
+    const { onSubmit } = useCreateAccount({ resetForm: reset });
 
     return (
         <div className={classes.root}>

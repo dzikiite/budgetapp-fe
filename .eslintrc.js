@@ -11,7 +11,7 @@ module.exports = {
         ecmaVersion: 13,
         sourceType: 'module',
     },
-    plugins: ['react', 'prettier'],
+    plugins: ['react', 'react-hooks', 'prettier'],
     rules: {
         'react/jsx-filename-extension': 'off',
         'react/function-component-definition': [
@@ -28,6 +28,7 @@ module.exports = {
         'no-console': 'off',
         'no-restricted-exports': 'off',
         'import/order': 'off',
+        'react-hooks/exhaustive-deps': 'error',
     },
     settings: {
         'import/resolver': {

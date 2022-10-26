@@ -2,11 +2,13 @@ import React, { cloneElement } from 'react';
 import { useRoutes, useLocation } from 'react-router-dom';
 
 import GuestTemplate from 'components/RootTemplates/Guest';
+import UserTemplate from 'components/RootTemplates/User';
 
 import Homepage from 'pages/Homepage';
 import SignIn from 'pages/SignIn';
 import CreateAccount from 'pages/CreateAccount';
 import ForgotPassword from 'pages/ForgotPassword';
+import Dashboard from 'pages/Dashboard';
 
 import { PATHS } from 'utils/constants';
 
@@ -32,13 +34,25 @@ const App = () => {
         },
     ]);
 
-    if (!guestElement) return null;
+    const userElement = useRoutes([
+        {
+            path: PATHS.dashboard,
+            element: <Dashboard />,
+        },
+    ]);
 
     return (
-        <div className="App">
-            <GuestTemplate>
-                {cloneElement(guestElement, { key: location.pathname })}
-            </GuestTemplate>
+        <div>
+            {guestElement ? (
+                <GuestTemplate>
+                    {cloneElement(guestElement, { key: location.pathname })}
+                </GuestTemplate>
+            ) : null}
+            {userElement ? (
+                <UserTemplate>
+                    {cloneElement(userElement, { key: location.pathname })}
+                </UserTemplate>
+            ) : null}
         </div>
     );
 };

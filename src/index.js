@@ -7,6 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 import CombineProviders from 'utils/combineProviders';
 import AppContextProvider from 'context/app/appContext';
 import LocaleProvider from 'context/locale/localeContext';
+import UserContextProvider from 'context/user/userContext';
 
 import App from './App';
 
@@ -19,6 +20,7 @@ const providers = [
     QueryClientProvider,
     LocaleProvider,
     AppContextProvider,
+    UserContextProvider,
 ];
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

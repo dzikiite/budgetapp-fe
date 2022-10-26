@@ -65,7 +65,7 @@ const LocaleProvider = ({ children }) => {
 
             navigate(0);
         },
-        [navigate]
+        [navigate, locale]
     );
 
     const contextValue = useMemo(
