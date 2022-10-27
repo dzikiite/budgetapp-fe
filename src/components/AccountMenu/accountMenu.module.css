@@ -1,0 +1,69 @@
+.root {
+    width: 210px;
+    height: 185px;
+    display: grid;
+    align-content: start;
+    padding: 15px 17px;
+    background-color: #181b25;
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    transform: translateY(100%);
+    border-radius: 5px;
+    color: var(--color-white);
+}
+
+.trigger {
+    composes: root from 'styles/click.module.css';
+
+    width: 210px;
+    height: 54px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: max-content max-content;
+    column-gap: 11px;
+    outline: none;
+    border: none;
+    color: var(--color-white);
+    border-radius: 5px;
+    font-size: 1.6rem;
+    background-color: #181b25;
+}
+
+.name {
+    font-size: 1.6rem;
+    padding-bottom: 7px;
+    border-bottom: 1px solid var(--color-gray-300);
+}
+
+.menu {
+    padding: 14px 0 7px;
+    list-style-type: none;
+    border-bottom: 1px solid var(--color-gray-300);
+}
+
+.link {
+    display: block;
+    color: var(--color-white);
+    text-decoration: none;
+    font-size: 1.4rem;
+    padding: 6px 0;
+}
+
+.logout {
+    padding-top: 16px;
+}
+
+.logoutBtn {
+    composes: root from 'styles/click.module.css';
+
+    outline: none;
+    border: none;
+    display: grid;
+    grid-template-columns: max-content max-content;
+    column-gap: 5px;
+    color: var(--color-white);
+    background: none;
+    font-size: 1.4rem;
+}

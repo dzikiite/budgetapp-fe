@@ -3,6 +3,8 @@ import { node } from 'prop-types';
 
 import { useUserTemplate } from './useUserTemplate';
 
+import MainNavigation from 'components/MainNavigation';
+
 import classes from './userTemplate.module.css';
 
 const GuestTemplate = (props) => {
@@ -12,7 +14,7 @@ const GuestTemplate = (props) => {
 
     return (
         <div className={classes.root}>
-            User template
+            <MainNavigation />
             {children}
         </div>
     );

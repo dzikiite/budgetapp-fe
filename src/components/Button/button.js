@@ -66,7 +66,7 @@ Button.propTypes = {
     classes: shape({
         root: string,
     }),
-    appearance: string,
+    appearance: Object.values(BUTTONS_APPEARANCE),
     disabled: bool,
     onPress: func,
     isBusy: bool,

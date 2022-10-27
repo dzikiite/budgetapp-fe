@@ -4,6 +4,13 @@ export const PATHS = {
     createAccount: '/create-account',
     forgotPassword: '/forgot-password',
     dashboard: '/dashboard',
+    categories: '/categories',
+    budgets: '/budgets',
+    bills: '/bills',
+    goals: '/goals',
+    statements: '/statements',
+    account: '/account',
+    password: '/password',
 };
 
 export const LOCALES = {
@@ -15,4 +22,5 @@ export const BUTTONS_APPEARANCE = {
     navyBlue: 'navyBlue',
     violetOutline: 'violetOutline',
     violetGradient: 'violetGradient',
+    navyBlueSquare: 'navyBlueSquare',
 };

@@ -1,8 +1,12 @@
 import React from 'react';
 
+import DashboardHeader from 'components/DashboardHeader';
+
+import classes from './dashboard.module.css';
+
 const Dashboard = () => (
-    <div>
-        <span>Dashboard</span>
+    <div className={classes.root}>
+        <DashboardHeader />
     </div>
 );
 

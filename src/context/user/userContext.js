@@ -59,7 +59,7 @@ const UserContextProvider = ({ children }) => {
     }, []);
 
     const saveToken = useCallback((token) => {
-        storage.setItem('user_token', token);
+        storage.setItem('user_token', token, 3000);
         dispatch({ type: 'setIsSignedIn', payload: true });
     }, []);
 

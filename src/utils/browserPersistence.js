@@ -33,13 +33,20 @@ const BrowserPersistence = () => {
     const getRawItem = (name) => storage.getItem(name);
 
     const getItem = (name) => {
+        const now = Date.now();
         const item = storage.getItem(name);
 
         if (!item) {
             return undefined;
         }
 
-        const { value } = JSON.parse(item);
+        const { value, ttl, timeStored } = JSON.parse(item);
+
+        if (ttl && now - timeStored > ttl * 1000) {
+            storage.removeItem(name);
+
+            return undefined;
+        }
 
         return JSON.parse(value);
     };
