@@ -67,7 +67,7 @@ const MainNavigation = () => {
     return (
         <div className={classes.root}>
             <div className={classes.logoWrapper}>
-                <Logo />
+                <Logo url={PATHS.dashboard} />
             </div>
             <nav className={classes.navigation}>
                 <ul>

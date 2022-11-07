@@ -5,7 +5,7 @@ import { FormattedMessage } from 'react-intl';
 import Logo from 'components/Logo';
 import Button from 'components/Button';
 
-import { BUTTONS_APPEARANCE } from 'utils/constants';
+import { BUTTONS_APPEARANCE, PATHS } from 'utils/constants';
 import { useGuestTemplate } from './useGuestTemplate';
 import classes from './guestTemplate.module.css';
 
@@ -19,7 +19,10 @@ const GuestTemplate = (props) => {
         <div className={classes.root}>
             <header className={classes.header}>
                 <div className={classes.logo}>
-                    <Logo isClickable={!isHomeRoute} />
+                    <Logo
+                        isClickable={!isHomeRoute}
+                        url={isHomeRoute ? '' : PATHS.home}
+                    />
                 </div>
                 {isHomeRoute ? (
                     <nav className={classes.buttons}>
