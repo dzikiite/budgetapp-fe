@@ -42,4 +42,32 @@ const register = async ({ firstname, lastname, email, password }) => {
     return user?.data;
 };
 
-export default { login, getUserData, register };
+const getCategories = async () => {
+    const categories = await apiClient.get('/categories', {
+        headers: {
+            ...(isSignedIn() && {
+                authorization: `Bearer ${storage.getItem('user_token')}`,
+            }),
+        },
+    });
+
+    return categories?.data;
+};
+
+const updateUserData = async ({ data }) => {
+    const user = await apiClient.put(
+        '/user',
+        { ...data },
+        {
+            headers: {
+                ...(isSignedIn() && {
+                    authorization: `Bearer ${storage.getItem('user_token')}`,
+                }),
+            },
+        }
+    );
+
+    return user?.data;
+};
+
+export default { login, getUserData, register, getCategories, updateUserData };

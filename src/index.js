@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { BrowserRouter } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
 import CombineProviders from 'utils/combineProviders';
 import AppContextProvider from 'context/app/appContext';
@@ -12,6 +13,7 @@ import UserContextProvider from 'context/user/userContext';
 import App from './App';
 
 import './index.css';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 const queryClient = new QueryClient();
 
@@ -29,6 +31,7 @@ root.render(
         <CombineProviders providers={providers} client={queryClient}>
             <App />
             <ReactQueryDevtools />
+            <ToastContainer theme="dark" position="bottom-right" />
         </CombineProviders>
     </React.StrictMode>
 );

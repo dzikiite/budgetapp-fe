@@ -2,6 +2,6 @@
     display: grid;
     background: url('static/images/dashboard-background.png');
     min-height: 100vh;
-    padding: 45px 45px 45px calc(20% + 45px);
+    padding: 45px 45px 45px max(330px, calc(20% + 45px));
     position: relative;
 }

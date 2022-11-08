@@ -1,0 +1,68 @@
+.root {
+    width: 74vw;
+    max-height: 95vh;
+    min-height: 50vh;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 16px auto;
+    row-gap: 5px;
+    z-index: var(--zindex-modal);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(180deg, #181b25 2%, #0f111d 103.3%);
+    box-shadow: 0px 8px 20px #000000;
+    border-radius: 10px;
+    padding: 30px;
+
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.rootOpen {
+    composes: root;
+
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+}
+
+.mask {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: var(--zindex-mask);
+    background: rgba(9, 9, 12, 0.8);
+    cursor: pointer;
+    outline: none;
+    border: none;
+
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.maskOpen {
+    composes: mask;
+
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+}
+
+.header {
+    display: grid;
+    align-items: center;
+    justify-items: end;
+}
+
+.closeBtn {
+    background: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}

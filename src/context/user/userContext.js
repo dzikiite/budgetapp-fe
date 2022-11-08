@@ -5,10 +5,13 @@ import React, {
     useReducer,
     useContext,
     useEffect,
+    useState,
 } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { node } from 'prop-types';
-import { useMutation } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
+import { toast } from 'react-toastify';
+import { useIntl } from 'react-intl';
 
 import BrowserPersistence from 'utils/browserPersistence';
 
@@ -40,11 +43,13 @@ const reducer = (state, action) => {
 };
 
 const UserContextProvider = ({ children }) => {
-    const [state, dispatch] = useReducer(reducer, initialState);
-
     const { getUserData } = api;
 
+    const [state, dispatch] = useReducer(reducer, initialState);
+    const [fetchUserData, setFetchUserData] = useState(false);
+
     const navigate = useNavigate();
+    const { formatMessage } = useIntl();
 
     const handleLogout = useCallback(() => {
         storage.removeItem('user_token');
@@ -59,21 +64,33 @@ const UserContextProvider = ({ children }) => {
     }, []);
 
     const saveToken = useCallback((token) => {
-        storage.setItem('user_token', token, 3000);
+        storage.setItem('user_token', token, 5000);
         dispatch({ type: 'setIsSignedIn', payload: true });
     }, []);
 
-    const { mutate: getUserDataQuery } = useMutation(getUserData, {
-        onSuccess: (userData) => {
-            handleAddUserData(userData.user);
-        },
+    const { isError } = useQuery({
+        queryKey: ['userData'],
+        queryFn: getUserData,
+        enabled: fetchUserData,
+        onSuccess: (userData) => handleAddUserData(userData?.user),
     });
 
     useEffect(() => {
         if (state.isSignedIn && !state.firstname) {
-            getUserDataQuery();
+            setFetchUserData(true);
         }
-    }, [state, getUserDataQuery]);
+    }, [state]);
+
+    useEffect(() => {
+        if (isError) {
+            toast(
+                formatMessage({
+                    id: 'global.error',
+                    defaultMessage: 'Wystąpił błąd pobierania ',
+                })
+            );
+        }
+    }, [isError, formatMessage]);
 
     const actions = useMemo(
         () => ({

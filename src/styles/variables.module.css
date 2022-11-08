@@ -5,6 +5,7 @@
     --color-navy-blue: #1030ac;
     --color-violet: #6428c1;
     --color-violet-light: #6076ff;
+    --color-red: #ff0000;
 
     --color-gray-100: #000511;
     --color-gray-300: #494949;
@@ -25,6 +26,7 @@
     --zindex-up: 2;
     --zindex-menu: 5;
     --zindex-tooltip: 7;
+    --zindex-mask: 9;
     --zindex-modal: 10;
     --zindex-tooltip-modal: 15;
 

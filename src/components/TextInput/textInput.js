@@ -1,5 +1,6 @@
 import React from 'react';
 import { string, shape, func, object } from 'prop-types';
+import { ErrorMessage } from '@hookform/error-message';
 
 import { useStyle } from 'hooks/useStyle';
 
@@ -14,6 +15,7 @@ const TextInput = (props) => {
         register,
         type = 'text',
         errors,
+        registerObject,
         ...restProps
     } = props;
 
@@ -28,9 +30,12 @@ const TextInput = (props) => {
                 className={classes.input}
                 type={type}
                 id={id}
-                {...register(id)}
+                {...register(id, { ...registerObject })}
                 {...restProps}
             />
+            <span className={classes.error}>
+                {errors ? <ErrorMessage errors={errors} name={id} /> : null}
+            </span>
         </div>
     );
 };
@@ -49,4 +54,6 @@ TextInput.propTypes = {
     type: string,
     // eslint-disable-next-line react/forbid-prop-types
     errors: object,
+    // eslint-disable-next-line react/forbid-prop-types
+    registerObject: object,
 };

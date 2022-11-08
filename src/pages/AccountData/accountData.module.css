@@ -1,2 +1,13 @@
 .root {
+    width: 100%;
+}
+
+.wrapper {
+    padding: 10% 20%;
+    background-color: #181b25;
+    border-radius: 5px;
+}
+
+.button {
+    margin-top: 10px;
 }
