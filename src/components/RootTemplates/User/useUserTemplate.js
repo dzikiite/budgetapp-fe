@@ -1,18 +1,13 @@
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import { useUserContext } from 'context/user/userContext';
 
-import { PATHS } from 'utils/constants';
-
 export const useUserTemplate = () => {
-    const [{ isSignedIn }] = useUserContext();
-
-    const navigate = useNavigate();
+    const [{ isSignedIn }, { handleLogout }] = useUserContext();
 
     useEffect(() => {
         if (!isSignedIn) {
-            navigate(PATHS.home);
+            handleLogout();
         }
-    }, [isSignedIn, navigate]);
+    }, [isSignedIn, handleLogout]);
 };

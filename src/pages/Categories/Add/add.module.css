@@ -1,0 +1,15 @@
+.root {
+    display: grid;
+    row-gap: 30px;
+}
+
+.title {
+    font-size: 1.8rem;
+    color: var(--color-white);
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 30px;
+}

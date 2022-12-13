@@ -18,7 +18,6 @@ const DashboardHeader = (props) => {
                     <h1 className={classes.title}>{title}</h1>
                 ) : (
                     <Button appearance={BUTTONS_APPEARANCE.navyBlueSquare}>
-                        {/* TODO: Add translation */}
                         <FormattedMessage
                             id="dashboardHeader.addBudget"
                             defaultMessage="Dodaj budżet"

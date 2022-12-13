@@ -10,12 +10,18 @@ import AppContextProvider from 'context/app/appContext';
 import LocaleProvider from 'context/locale/localeContext';
 import UserContextProvider from 'context/user/userContext';
 
-import App from './App';
+import App from './app';
 
 import './index.css';
 import 'react-toastify/dist/ReactToastify.min.css';
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+    defaultOptions: {
+        queries: {
+            refetchOnWindowFocus: false,
+        },
+    },
+});
 
 const providers = [
     BrowserRouter,

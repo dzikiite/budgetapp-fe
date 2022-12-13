@@ -1,5 +1,5 @@
 import React from 'react';
-import { string, shape, func, object } from 'prop-types';
+import { string, shape, func, object, bool } from 'prop-types';
 import { ErrorMessage } from '@hookform/error-message';
 
 import { useStyle } from 'hooks/useStyle';
@@ -24,7 +24,7 @@ const TextInput = (props) => {
     return (
         <div className={classes.root}>
             <label className={classes.label} htmlFor={id}>
-                {`${label || null} ${isRequired ? '*' : null}`}
+                {`${label || null} ${isRequired ? '*' : ''}`}
             </label>
             <input
                 className={classes.input}
@@ -49,7 +49,7 @@ TextInput.propTypes = {
     }),
     id: string.isRequired,
     label: string,
-    isRequired: string,
+    isRequired: bool,
     register: func,
     type: string,
     // eslint-disable-next-line react/forbid-prop-types

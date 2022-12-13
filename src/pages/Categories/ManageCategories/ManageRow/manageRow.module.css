@@ -1,0 +1,72 @@
+.root {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 24px;
+}
+
+.heading {
+    background: linear-gradient(180deg, #222535 3.42%, #0c0c15 96.59%);
+    border-radius: 5px;
+    height: 57px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 35px;
+    font-size: 1.4rem;
+}
+
+.subcategories {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-flow: max-content;
+    column-gap: 21px;
+    row-gap: 21px;
+}
+
+.subcategory {
+    display: grid;
+    grid-template-columns: 61px 1fr;
+    grid-template-rows: 48px auto;
+    background: linear-gradient(180deg, #222535 3.42%, #0c0c15 96.59%);
+    border-radius: 5px;
+    height: 100%;
+    padding: 30px;
+}
+
+.number {
+    background: linear-gradient(175.8deg, #181b25 3.42%, #10121d 96.59%);
+    border-radius: 5px;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    font-size: 1.8rem;
+}
+
+.subcategoryName {
+    align-self: center;
+    margin-left: 30px;
+    font-size: 1.4rem;
+}
+
+.row {
+    grid-column: 1 / 3;
+    margin-top: 30px;
+    align-self: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.row span {
+    width: 85%;
+}
+
+.button {
+    composes: root from 'styles/click.module.css';
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #db00ff;
+    font-size: 1.4rem;
+}

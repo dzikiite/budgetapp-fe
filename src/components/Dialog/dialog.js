@@ -1,6 +1,7 @@
 import React from 'react';
 import { bool, func, node } from 'prop-types';
 import { useIntl } from 'react-intl';
+import SimpleBar from 'simplebar-react';
 
 import { useLockBodyScroll } from 'hooks/useLockBodyScroll';
 
@@ -30,7 +31,9 @@ const Dialog = (props) => {
                         <Icon icon="close" color="#ffffff" />
                     </button>
                 </div>
-                <div className={classes.content}>{children}</div>
+                <div className={classes.content}>
+                    <SimpleBar id="dialog-simplebar">{children}</SimpleBar>
+                </div>
             </aside>
             <button
                 type="button"

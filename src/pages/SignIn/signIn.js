@@ -19,6 +19,8 @@ const SignIn = () => {
 
     const { onSubmit } = useSignIn({ resetForm: reset });
 
+    // TODO Focus email on component mount
+
     return (
         <div className={classes.root}>
             <h3 className={classes.title}>

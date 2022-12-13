@@ -70,4 +70,68 @@ const updateUserData = async ({ data }) => {
     return user?.data;
 };
 
-export default { login, getUserData, register, getCategories, updateUserData };
+const addCategory = async (data) => {
+    const category = await apiClient.post(
+        '/categories',
+        {
+            category_name: data.name,
+        },
+        {
+            headers: {
+                ...(isSignedIn() && {
+                    authorization: `Bearer ${storage.getItem('user_token')}`,
+                }),
+            },
+        }
+    );
+
+    return category?.data;
+};
+
+const addSubcategory = async (data, id) => {
+    const subcategory = await apiClient.post(
+        `/subcategories/${id}`,
+        {
+            subcategory_name: data.name,
+            subcategory_description: data.description,
+        },
+        {
+            headers: {
+                ...(isSignedIn() && {
+                    authorization: `Bearer ${storage.getItem('user_token')}`,
+                }),
+            },
+        }
+    );
+
+    return subcategory?.data;
+};
+
+const editCategory = async (data, id) => {
+    const category = await apiClient.put(
+        `/categories/${id}`,
+        {
+            category_name: data.name,
+        },
+        {
+            headers: {
+                ...(isSignedIn() && {
+                    authorization: `Bearer ${storage.getItem('user_token')}`,
+                }),
+            },
+        }
+    );
+
+    return category?.data;
+};
+
+export default {
+    login,
+    getUserData,
+    register,
+    getCategories,
+    updateUserData,
+    addCategory,
+    addSubcategory,
+    editCategory,
+};

@@ -1,2 +1,16 @@
 .root {
+    color: var(--color-white);
+}
+
+.root p {
+    font-size: 1.6rem;
+}
+
+.button {
+    margin-bottom: 40px;
+}
+
+.categoriesWrapper {
+    display: grid;
+    row-gap: 40px;
 }

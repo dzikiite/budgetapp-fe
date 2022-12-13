@@ -1,14 +1,14 @@
 .root {
     width: 74vw;
     max-height: 95vh;
-    min-height: 50vh;
+    min-height: 40vh;
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 16px auto;
     row-gap: 5px;
     z-index: var(--zindex-modal);
     position: absolute;
-    top: 50%;
+    top: calc(var(--window-height) - var(--window-height) / 2);
     left: 50%;
     transform: translate(-50%, -50%);
     background: linear-gradient(180deg, #181b25 2%, #0f111d 103.3%);
@@ -65,4 +65,13 @@
     outline: none;
     border: none;
     cursor: pointer;
+}
+
+.content {
+    margin-top: 15px;
+}
+
+.root :global(#dialog-simplebar) {
+    max-height: 85vh;
+    height: 100%;
 }

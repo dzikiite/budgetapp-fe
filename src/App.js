@@ -1,5 +1,8 @@
 import React, { cloneElement } from 'react';
 import { useRoutes, useLocation } from 'react-router-dom';
+import 'simplebar-react/dist/simplebar.min.css';
+
+import { useWindowSize } from 'hooks/useWindowSize';
 
 import GuestTemplate from 'components/RootTemplates/Guest';
 import UserTemplate from 'components/RootTemplates/User';
@@ -17,10 +20,12 @@ import Bills from 'pages/Bills';
 import ChangePassword from 'pages/ChangePassword';
 import Categories from 'pages/Categories';
 
+import './styles/simplebar.module.css';
 import { PATHS } from 'utils/constants';
 
 const App = () => {
     const location = useLocation();
+    const windowSize = useWindowSize();
 
     const guestElement = useRoutes([
         {
@@ -77,7 +82,13 @@ const App = () => {
     ]);
 
     return (
-        <div>
+        <div
+            style={{
+                '--window-height': `${windowSize.height}px`,
+                '--window-width': `${windowSize.width}px`,
+                '--window-initial-height': `${windowSize.initialHeight}px`,
+            }}
+        >
             {guestElement ? (
                 <GuestTemplate>
                     {cloneElement(guestElement, { key: location.pathname })}

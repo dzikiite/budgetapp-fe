@@ -1,0 +1,29 @@
+.root {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+    color: var(--color-white);
+}
+
+.heading {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title {
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+.description {
+    width: 60%;
+    color: #656667;
+    font-size: 1.4rem;
+    margin-bottom: 30px;
+}
+
+.rows {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 50px;
+}
