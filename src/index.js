@@ -9,6 +9,7 @@ import CombineProviders from 'utils/combineProviders';
 import AppContextProvider from 'context/app/appContext';
 import LocaleProvider from 'context/locale/localeContext';
 import UserContextProvider from 'context/user/userContext';
+import DataContextProvider from 'context/data/dataContext';
 
 import App from './app';
 
@@ -29,6 +30,7 @@ const providers = [
     LocaleProvider,
     AppContextProvider,
     UserContextProvider,
+    DataContextProvider,
 ];
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

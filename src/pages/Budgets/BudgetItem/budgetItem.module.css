@@ -1,0 +1,24 @@
+.root {
+    composes: root from 'styles/click.module.css';
+
+    display: grid;
+    outline: none;
+    background-color: transparent;
+    border: none;
+    color: var(--color-white);
+    justify-items: center;
+}
+
+.main {
+    border-radius: 5px;
+    width: 80px;
+    height: 80px;
+    display: grid;
+    align-content: center;
+    font-size: 2.4rem;
+}
+
+.title {
+    margin-top: 10px;
+    text-transform: uppercase;
+}

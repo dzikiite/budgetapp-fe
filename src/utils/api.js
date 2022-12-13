@@ -125,6 +125,36 @@ const editCategory = async (data, id) => {
     return category?.data;
 };
 
+const getBudgets = async () => {
+    const budgets = await apiClient.get('/budgets', {
+        headers: {
+            ...(isSignedIn() && {
+                authorization: `Bearer ${storage.getItem('user_token')}`,
+            }),
+        },
+    });
+
+    return budgets?.data;
+};
+
+const addBudget = async (data) => {
+    const budget = await apiClient.post(
+        '/budgets',
+        {
+            budget_name: data?.name,
+        },
+        {
+            headers: {
+                ...(isSignedIn() && {
+                    authorization: `Bearer ${storage.getItem('user_token')}`,
+                }),
+            },
+        }
+    );
+
+    return budget?.data;
+};
+
 export default {
     login,
     getUserData,
@@ -134,4 +164,6 @@ export default {
     addCategory,
     addSubcategory,
     editCategory,
+    getBudgets,
+    addBudget,
 };

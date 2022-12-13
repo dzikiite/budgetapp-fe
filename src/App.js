@@ -19,6 +19,7 @@ import AccountData from 'pages/AccountData';
 import Bills from 'pages/Bills';
 import ChangePassword from 'pages/ChangePassword';
 import Categories from 'pages/Categories';
+import Budget from 'pages/Budget';
 
 import './styles/simplebar.module.css';
 import { PATHS } from 'utils/constants';
@@ -54,6 +55,10 @@ const App = () => {
         {
             path: PATHS.budgets,
             element: <Budgets />,
+        },
+        {
+            path: `${PATHS.budget}/:budgetId`,
+            element: <Budget />,
         },
         {
             path: PATHS.statements,

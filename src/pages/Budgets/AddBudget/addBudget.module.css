@@ -1,0 +1,17 @@
+.root {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    align-items: center;
+    column-gap: 15px;
+}
+
+.button {
+    justify-self: end;
+    width: 100%;
+}
+
+.buttonRoot {
+    composes: root_violetGradientAppearance from 'components/Button/button.module.css';
+
+    width: 100%;
+}
