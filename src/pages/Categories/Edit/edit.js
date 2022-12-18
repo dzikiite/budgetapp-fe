@@ -44,6 +44,7 @@ const Edit = (props) => {
             </div>
             <div className={classes.form}>
                 <Form
+                    // TODO Edit subcategory
                     onSubmit={isCategoryEdit ? handleEditCategory : () => {}}
                     handleSubmit={handleSubmit}
                 >

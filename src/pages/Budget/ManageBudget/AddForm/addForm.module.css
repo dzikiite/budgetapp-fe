@@ -1,0 +1,9 @@
+.root {
+    display: grid;
+}
+
+.description {
+    color: #d5d5d5;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+}

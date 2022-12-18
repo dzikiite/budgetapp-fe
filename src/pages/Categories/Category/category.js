@@ -14,10 +14,10 @@ const Category = (props) => {
                 </span>
             </div>
             <div className={classes.subcategoriesWrapper}>
-                {category.subcategories.map((subcategory, index) => (
+                {category.subcategories_templates.map((subcategory, index) => (
                     <div
                         className={classes.subcategory}
-                        key={subcategory.subcategory_id}
+                        key={subcategory.subcategory_template_id}
                     >
                         <div className={classes.number}>{`${index + 1}.`}</div>
                         <div className={classes.subcategoryName}>
@@ -38,12 +38,12 @@ export default Category;
 Category.propTypes = {
     category: shape({
         category_name: string,
-        category_id: number,
-        subcategories: arrayOf(
+        category_template_id: number,
+        subcategories_templates: arrayOf(
             shape({
                 subcategory_name: string,
                 subcategory_description: string,
-                subcategory_id: number,
+                subcategory_template_id: number,
             })
         ),
     }),

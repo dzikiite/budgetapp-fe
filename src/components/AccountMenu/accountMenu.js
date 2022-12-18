@@ -20,12 +20,10 @@ const AccountMenu = () => {
                 className={classes.trigger}
                 type="button"
                 onClick={handleMenuToggle}
-                // TODO: Work on animation
                 whileHover={{ scale: isMenuOpen ? 1 : 1.06 }}
                 whileFocus={{ scale: isMenuOpen ? 1 : 1.06 }}
             >
                 <Icon color="#ffffff" icon="account" width={35} />
-                {/* TODO: Add translations */}
                 <FormattedMessage
                     id="accountMenu.hello"
                     defaultMessage="Witaj {firstname}!"

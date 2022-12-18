@@ -12,7 +12,6 @@ import classes from './mainNavigation.module.css';
 const MainNavigation = () => {
     const { formatMessage } = useIntl();
 
-    // TODO: Add translations
     const navItems = useMemo(
         () => [
             {

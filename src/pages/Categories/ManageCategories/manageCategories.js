@@ -56,7 +56,7 @@ const ManageCategories = (props) => {
                 {categories?.length > 0
                     ? categories.map((category) => (
                           <ManageRow
-                              key={category.category_id}
+                              key={category.category_template_id}
                               suggestedCategoryMock={suggestedCategoryMock}
                               category={category}
                               handleAddCategory={handleAddCategory}

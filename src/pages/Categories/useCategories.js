@@ -1,9 +1,6 @@
 import { useMemo, useState, useCallback } from 'react';
-import { useQuery } from '@tanstack/react-query';
 
-import { useError } from 'hooks/useError';
-
-import api from 'utils/api';
+import { useDataContext } from 'context/data/dataContext';
 
 export const DIALOG_TYPE = {
     subcategory: 'subcategory',
@@ -11,30 +8,13 @@ export const DIALOG_TYPE = {
 };
 
 export const useCategories = () => {
-    const { getCategories } = api;
-
-    const { handleError } = useError();
-
     const [isDialogOpen, setIsDialogOpen] = useState(false);
     const [dialogType, setDialogType] = useState(null);
     const [idInEdit, setIdInEdit] = useState(null);
 
-    // TODO: Handle error and loading state
-    const { data, error } = useQuery({
-        queryKey: ['categories'],
-        queryFn: getCategories,
-        onError: () => {
-            handleError();
-        },
-    });
+    const [{ categories }] = useDataContext();
 
-    const categories = useMemo(() => {
-        if (data && !error) {
-            return data.categoriesData;
-        }
-
-        return [];
-    }, [data, error]);
+    console.log('categories: ', categories);
 
     const editInitialValues = useMemo(() => {
         if (!categories || !idInEdit) {
@@ -45,7 +25,8 @@ export const useCategories = () => {
             const category =
                 categories.filter(
                     (categoryItem) =>
-                        categoryItem.category_id === idInEdit.categoryId
+                        categoryItem.category_template_id ===
+                        idInEdit.categoryId
                 )?.[0] || {};
 
             if (!category) {
@@ -61,11 +42,12 @@ export const useCategories = () => {
             const subcategory = categories
                 .filter(
                     (categoryItem) =>
-                        categoryItem.category_id === idInEdit.categoryId
+                        categoryItem.category_template_id ===
+                        idInEdit.categoryId
                 )?.[0]
-                ?.subcategories?.filter(
+                ?.subcategories_templates?.filter(
                     (subcategoryItem) =>
-                        subcategoryItem.subcategory_id ===
+                        subcategoryItem.subcategory_template_id ===
                         idInEdit.subcategoryId
                 )?.[0];
 

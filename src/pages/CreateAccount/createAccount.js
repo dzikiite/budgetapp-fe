@@ -13,7 +13,6 @@ import { PATHS } from 'utils/constants';
 import classes from './createAccount.module.css';
 
 const CreateAccount = () => {
-    // TODO Handle errors
     const { register, handleSubmit, reset } = useForm();
     const { formatMessage } = useIntl();
 

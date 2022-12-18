@@ -113,7 +113,7 @@ const Categories = () => {
                         categories.map((category) => (
                             <Category
                                 category={category}
-                                key={category.category_id}
+                                key={category.category_template_id}
                             />
                         ))
                     ) : (

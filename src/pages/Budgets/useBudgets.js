@@ -1,28 +1,26 @@
-import { useMemo, useState, useCallback, useEffect } from 'react';
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { useMemo, useState, useCallback } from 'react';
+import { useMutation } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { useIntl } from 'react-intl';
 
-import { useError } from 'hooks/useError';
 import { useDataContext } from 'context/data/dataContext';
+import { useInvalidateQueries } from 'hooks/useInvalidateQueries';
+import { useError } from 'hooks/useError';
 
 import api from 'utils/api';
 import { PATHS } from 'utils/constants';
 
 export const useBudgets = () => {
-    const { getBudgets, addBudget: addBudgetMutation } = api;
+    const { addBudget: addBudgetMutation } = api;
 
-    const { handleError } = useError();
-    const queryClient = useQueryClient();
+    const { invalidateQuery } = useInvalidateQueries();
     const navigate = useNavigate();
-    const [, { setBudgets }] = useDataContext();
+    const [{ budgets }] = useDataContext();
+    const { formatMessage } = useIntl();
+    const { handleError } = useError();
 
     const [searchPhrase, setSearchPhrase] = useState('');
-
-    const { data } = useQuery({
-        queryKey: ['budgets'],
-        queryFn: getBudgets,
-        onError: () => handleError(),
-    });
 
     const { mutate: addBudget } = useMutation(
         (mutationData) => {
@@ -30,18 +28,18 @@ export const useBudgets = () => {
         },
         {
             onSuccess: () => {
-                queryClient.invalidateQueries({ queryKey: ['budgets'] });
+                invalidateQuery('budgets');
+                toast(
+                    formatMessage({
+                        id: 'budgets.addSuccess',
+                        defaultMessage: 'Budżety został dodany poprawnie',
+                    }),
+                    { type: 'success' }
+                );
             },
+            onError: () => handleError(),
         }
     );
-
-    const budgets = useMemo(() => {
-        if (data?.budgets) {
-            return data.budgets;
-        }
-
-        return [];
-    }, [data]);
 
     const filteredBudgets = useMemo(() => {
         if (!searchPhrase) {
@@ -68,18 +66,13 @@ export const useBudgets = () => {
 
     const handleAddBudget = useCallback(
         async (formValues) => {
+            console.log('formValues', formValues);
             await addBudget(formValues);
         },
         [addBudget]
     );
 
     const isSearchPhrase = !!searchPhrase;
-
-    useEffect(() => {
-        if (budgets.length > 0) {
-            setBudgets(budgets);
-        }
-    }, [budgets, setBudgets]);
 
     return {
         budgets,

@@ -1,8 +1,9 @@
 import { useCallback, useMemo } from 'react';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useMutation } from '@tanstack/react-query';
 import { toast } from 'react-toastify';
 import { useIntl } from 'react-intl';
 
+import { useInvalidateQueries } from 'hooks/useInvalidateQueries';
 import { useUserContext } from 'context/user/userContext';
 import { shallowEqual } from 'utils/shallowEqual';
 
@@ -12,14 +13,14 @@ export const useAccountData = () => {
     const { updateUserData } = api;
 
     const { formatMessage } = useIntl();
-    const queryClient = useQueryClient();
+    const { invalidateQuery } = useInvalidateQueries();
 
     const [{ firstname, lastname, email }] = useUserContext();
 
     const { mutate: changeUserData } = useMutation({
         mutationFn: (data) => updateUserData({ data }),
         onSuccess: () => {
-            queryClient.invalidateQueries({ queryKey: ['userData'] });
+            invalidateQuery('userData');
 
             toast(
                 formatMessage({

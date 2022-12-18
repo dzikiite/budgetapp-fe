@@ -3,50 +3,46 @@ import { useMutation } from '@tanstack/react-query';
 import { toast } from 'react-toastify';
 import { useIntl } from 'react-intl';
 
-import { DIALOG_TYPE } from '../useCategories';
 import { useError } from 'hooks/useError';
 import { useInvalidateQueries } from 'hooks/useInvalidateQueries';
 
 import api from 'utils/api';
 
-export const useEdit = (props) => {
-    const { type, ids, onSuccess } = props;
-    const { editCategory: editCategoryMutation } = api;
+export const useAddForm = (props) => {
+    const { budgetId } = props;
+
+    const { addInflow: addInflowMutation } = api;
 
     const { formatMessage } = useIntl();
     const { handleError } = useError();
     const { invalidateQuery } = useInvalidateQueries();
 
-    const { mutate: editCategory } = useMutation(
+    const { mutate: addInflow } = useMutation(
         (mutationData) => {
-            const categoryId = ids?.categoryId;
-
-            editCategoryMutation(mutationData, categoryId);
+            addInflowMutation(budgetId, mutationData);
         },
         {
             onSuccess: () => {
-                onSuccess();
+                invalidateQuery('budgets');
                 toast(
                     formatMessage({
-                        id: 'edit.successCategory',
-                        defaultMessage: 'Kategoria zapisana poprawnie.',
+                        id: 'addForm.successAdd',
+                        defaultMessage: 'Wpływ budżetowy został dodany.',
                     }),
                     { type: 'success' }
                 );
-                invalidateQuery('categories');
             },
             onError: () => handleError(),
         }
     );
 
-    const handleEditCategory = useCallback(
+    const handleAddInflow = useCallback(
         async (formValues) => {
-            await editCategory(formValues);
+            console.log('formValues: ', formValues);
+            await addInflow(formValues);
         },
-        [editCategory]
+        [addInflow]
     );
 
-    const isCategoryEdit = type === DIALOG_TYPE.category;
-
-    return { isCategoryEdit, handleEditCategory };
+    return { handleAddInflow };
 };

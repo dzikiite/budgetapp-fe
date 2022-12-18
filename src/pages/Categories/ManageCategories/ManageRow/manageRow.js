@@ -58,12 +58,15 @@ const ManageRow = (props) => {
                 </>
             ) : (
                 <>
-                    <div className={classes.heading} key={category.category_id}>
+                    <div
+                        className={classes.heading}
+                        key={category.category_template_id}
+                    >
                         <span>{category.category_name}</span>
                         <Button
                             onClick={() =>
                                 handleEditCategory({
-                                    categoryId: category.category_id,
+                                    categoryId: category.category_template_id,
                                 })
                             }
                         >
@@ -74,41 +77,45 @@ const ManageRow = (props) => {
                         </Button>
                     </div>
                     <div className={classes.subcategories}>
-                        {category.subcategories.map((subcategory, index) => (
-                            <div
-                                className={classes.subcategory}
-                                key={subcategory.subcategory_id}
-                            >
-                                <div className={classes.number}>
-                                    {`${index + 1}.`}
-                                </div>
-                                <span className={classes.subcategoryName}>
-                                    {subcategory.subcategory_name}
-                                </span>
-                                <div className={classes.row}>
-                                    <span>
-                                        {subcategory.subcategory_description}
+                        {category.subcategories_templates.map(
+                            (subcategory, index) => (
+                                <div
+                                    className={classes.subcategory}
+                                    key={subcategory.subcategory_template_id}
+                                >
+                                    <div className={classes.number}>
+                                        {`${index + 1}.`}
+                                    </div>
+                                    <span className={classes.subcategoryName}>
+                                        {subcategory.subcategory_name}
                                     </span>
-                                    <button
-                                        type="button"
-                                        className={classes.button}
-                                        onClick={() =>
-                                            handleEditSubcategory({
-                                                subcategoryId:
-                                                    subcategory.subcategory_id,
-                                                categoryId:
-                                                    category.category_id,
-                                            })
-                                        }
-                                    >
-                                        <FormattedMessage
-                                            id="addRow.edit"
-                                            defaultMessage="Edytuj"
-                                        />
-                                    </button>
+                                    <div className={classes.row}>
+                                        <span>
+                                            {
+                                                subcategory.subcategory_description
+                                            }
+                                        </span>
+                                        <button
+                                            type="button"
+                                            className={classes.button}
+                                            onClick={() =>
+                                                handleEditSubcategory({
+                                                    subcategoryId:
+                                                        subcategory.subcategory_template_id,
+                                                    categoryId:
+                                                        category.category_template_id,
+                                                })
+                                            }
+                                        >
+                                            <FormattedMessage
+                                                id="addRow.edit"
+                                                defaultMessage="Edytuj"
+                                            />
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
+                            )
+                        )}
                         <div className={classes.subcategory}>
                             <div className={classes.number}>+</div>
                             <span className={classes.subcategoryName}>
@@ -125,7 +132,8 @@ const ManageRow = (props) => {
                                     className={classes.button}
                                     onClick={() =>
                                         handleAddSubcategory({
-                                            categoryId: category.category_id,
+                                            categoryId:
+                                                category.category_template_id,
                                         })
                                     }
                                 >
@@ -154,12 +162,12 @@ ManageRow.propTypes = {
     isMock: bool,
     category: shape({
         category_name: string,
-        category_id: number,
-        subcategories: arrayOf(
+        category_template_id: number,
+        subcategories_templates: arrayOf(
             shape({
                 subcategory_name: string,
                 subcategory_description: string,
-                subcategory_id: number,
+                subcategory_template_id: number,
             })
         ),
     }),

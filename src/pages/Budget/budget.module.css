@@ -1,2 +1,48 @@
 .root {
+    display: grid;
+    align-content: start;
+}
+
+.wrapper {
+    background: linear-gradient(
+        180deg,
+        rgba(24, 27, 37, 0.152) 0%,
+        rgba(24, 27, 37, 0.8) 100%
+    );
+    padding: 25px;
+}
+
+.content {
+    display: grid;
+    padding: 30px;
+    background: linear-gradient(175.8deg, #181b25 3.42%, #10121d 96.59%);
+}
+
+.addInflow {
+    margin-bottom: 40px;
+}
+
+.totals {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: stretch;
+    column-gap: 30px;
+}
+
+.col {
+    background: linear-gradient(175.8deg, #222535 3.42%, #0c0c15 96.59%);
+    color: var(--color-white);
+    font-size: 1.4rem;
+    border-radius: 5px;
+}
+
+.row {
+    height: 38px;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+.row:first-child {
+    border-bottom: 1px solid #3c3c3d;
 }

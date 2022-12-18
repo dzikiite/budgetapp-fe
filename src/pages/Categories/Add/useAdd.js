@@ -1,17 +1,18 @@
 import { useCallback } from 'react';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useMutation } from '@tanstack/react-query';
 import { toast } from 'react-toastify';
 import { useIntl } from 'react-intl';
 
 import { DIALOG_TYPE } from '../useCategories';
 import { useError } from 'hooks/useError';
+import { useInvalidateQueries } from 'hooks/useInvalidateQueries';
 
 import api from 'utils/api';
 
 export const useAdd = (props) => {
     const { type, ids, onSuccess } = props;
 
-    const queryClient = useQueryClient();
+    const { invalidateQuery } = useInvalidateQueries();
     const { formatMessage } = useIntl();
     const { handleError } = useError();
 
@@ -26,7 +27,7 @@ export const useAdd = (props) => {
         },
         {
             onSuccess: () => {
-                queryClient.invalidateQueries('categories');
+                invalidateQuery('categories');
                 onSuccess();
                 toast(
                     formatMessage({
@@ -48,7 +49,7 @@ export const useAdd = (props) => {
         },
         {
             onSuccess: () => {
-                queryClient.invalidateQueries('categories');
+                invalidateQuery('categories');
                 onSuccess();
                 toast(
                     formatMessage({
@@ -71,10 +72,21 @@ export const useAdd = (props) => {
 
     const handleAddSubcategory = useCallback(
         async (formValues) => {
-            // TODO: Default description
-            await addSubcategory(formValues);
+            const defaultDescription = formatMessage({
+                id: 'add.defaultDescription',
+                defaultMessage: 'Brak opisu kategorii',
+            });
+
+            if (!formValues?.description) {
+                await addSubcategory({
+                    formValues,
+                    description: defaultDescription,
+                });
+            } else {
+                await addSubcategory(formValues);
+            }
         },
-        [addSubcategory]
+        [addSubcategory, formatMessage]
     );
 
     const isCategoryAdd = type === DIALOG_TYPE.category;

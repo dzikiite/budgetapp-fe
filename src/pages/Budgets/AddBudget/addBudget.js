@@ -13,11 +13,14 @@ const AddBudget = (props) => {
     const { handleAddBudget } = props;
 
     const { formatMessage } = useIntl();
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, reset } = useForm();
 
     return (
         <Form
-            onSubmit={handleAddBudget}
+            onSubmit={async (formValues) => {
+                await handleAddBudget(formValues);
+                reset();
+            }}
             handleSubmit={handleSubmit}
             className={classes.root}
         >

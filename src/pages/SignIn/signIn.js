@@ -13,13 +13,10 @@ import { PATHS } from 'utils/constants';
 import classes from './signIn.module.css';
 
 const SignIn = () => {
-    // TODO Handle errors
     const { register, handleSubmit, reset } = useForm();
     const { formatMessage } = useIntl();
 
     const { onSubmit } = useSignIn({ resetForm: reset });
-
-    // TODO Focus email on component mount
 
     return (
         <div className={classes.root}>

@@ -1,0 +1,9 @@
+.root {
+    display: grid;
+}
+
+.title {
+    color: var(--color-white);
+    font-size: 1.6rem;
+    margin-bottom: 25px;
+}
