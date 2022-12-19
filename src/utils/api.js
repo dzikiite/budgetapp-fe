@@ -199,9 +199,6 @@ const addInflow = async (budgetId, data) => {
 };
 
 const updateAllocatedAmount = async (subcategoryId, data) => {
-    console.log('subcategoryId: ', subcategoryId);
-    console.log('data: ', data);
-
     const subcategory = await apiClient.put(
         `/subcategories/inflows/${subcategoryId}`,
         {

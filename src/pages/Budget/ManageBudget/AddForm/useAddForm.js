@@ -38,7 +38,6 @@ export const useAddForm = (props) => {
 
     const handleAddInflow = useCallback(
         async (formValues) => {
-            console.log('formValues: ', formValues);
             await addInflow(formValues);
         },
         [addInflow]

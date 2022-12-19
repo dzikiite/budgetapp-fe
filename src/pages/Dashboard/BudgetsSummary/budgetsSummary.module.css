@@ -1,0 +1,66 @@
+.root {
+    display: grid;
+    padding: 20px;
+}
+
+.title {
+    font-size: 2rem;
+    color: var(--color-white);
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: 1fr 6fr 3fr;
+}
+
+.col {
+    height: 75px;
+    display: grid;
+    place-items: center;
+    color: var(--color-white);
+    font-size: 1.6rem;
+    border: 1px solid #454545;
+    border-right: none;
+}
+
+.row:first-of-type .col {
+    border-top: none;
+    text-transform: uppercase;
+}
+
+.row:last-of-type .col {
+    border-bottom: none;
+}
+
+.col:first-child {
+    border-left: none;
+}
+
+.noBudgets {
+    font-size: 1.6rem;
+    color: var(--color-white);
+    margin: 20px 0;
+}
+
+.more {
+    margin-top: 30px;
+    width: 100%;
+    display: grid;
+    justify-content: end;
+}
+
+.moreBtn {
+    composes: root from 'styles/click.module.css';
+
+    display: block;
+    background: transparent;
+    border: none;
+    color: var(--color-white);
+    font-size: 1.4rem;
+}
+
+.moreBtn:hover {
+    text-decoration: underline;
+}

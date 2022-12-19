@@ -47,8 +47,6 @@ const DataContextProvider = ({ children }) => {
         return [];
     }, [data, error]);
 
-    console.log('budgets: ', budgets);
-
     const contextValue = useMemo(
         () => [{ budgets, categories }],
         [budgets, categories]

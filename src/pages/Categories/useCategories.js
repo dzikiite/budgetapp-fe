@@ -14,8 +14,6 @@ export const useCategories = () => {
 
     const [{ categories }] = useDataContext();
 
-    console.log('categories: ', categories);
-
     const editInitialValues = useMemo(() => {
         if (!categories || !idInEdit) {
             return {};

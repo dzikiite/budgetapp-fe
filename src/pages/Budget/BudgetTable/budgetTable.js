@@ -39,8 +39,6 @@ const BudgetTable = (props) => {
         );
     }
 
-    console.log('categoriesWithSums', categoriesWithSums);
-
     return (
         <div className={classes.root}>
             {categoriesWithSums.map((category) => (

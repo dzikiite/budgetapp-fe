@@ -66,7 +66,6 @@ export const useBudgets = () => {
 
     const handleAddBudget = useCallback(
         async (formValues) => {
-            console.log('formValues', formValues);
             await addBudget(formValues);
         },
         [addBudget]

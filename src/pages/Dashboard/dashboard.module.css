@@ -1,2 +1,19 @@
 .root {
+    display: grid;
+    align-content: start;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.box {
+    background: rgba(24, 27, 37, 0.8);
+    border-radius: 5px;
+}
+
+.box:first-child {
+    grid-column: 1 / 3;
 }

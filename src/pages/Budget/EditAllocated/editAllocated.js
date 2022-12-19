@@ -15,8 +15,6 @@ const EditAllocated = (props) => {
     const { subcategoryData, onSuccess } = props;
     const { amount, name, id } = subcategoryData;
 
-    console.log('subcategoryData: ', subcategoryData);
-
     const { register, handleSubmit } = useForm({
         defaultValues: { amount },
     });

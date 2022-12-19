@@ -2,6 +2,8 @@ import React from 'react';
 import { string } from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 
+import { useDashboardHeader } from './useDashboardHeader';
+
 import Button from 'components/Button';
 import AccountMenu from 'components/AccountMenu';
 
@@ -11,13 +13,18 @@ import classes from './dashboardHeader.module.css';
 const DashboardHeader = (props) => {
     const { title } = props;
 
+    const { handleAddBudget } = useDashboardHeader();
+
     return (
         <header className={classes.root}>
             <div className={classes.info}>
                 {title ? (
                     <h1 className={classes.title}>{title}</h1>
                 ) : (
-                    <Button appearance={BUTTONS_APPEARANCE.navyBlueSquare}>
+                    <Button
+                        appearance={BUTTONS_APPEARANCE.navyBlueSquare}
+                        onClick={handleAddBudget}
+                    >
                         <FormattedMessage
                             id="dashboardHeader.addBudget"
                             defaultMessage="Dodaj budżet"
