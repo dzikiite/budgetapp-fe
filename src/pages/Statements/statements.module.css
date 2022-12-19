@@ -1,2 +1,8 @@
 .root {
+    display: grid;
+    align-content: start;
+}
+
+.content {
+    display: grid;
 }

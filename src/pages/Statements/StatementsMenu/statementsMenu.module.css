@@ -1,0 +1,27 @@
+.root {
+    width: 100%;
+    display: grid;
+    grid-auto-flow: column;
+    column-gap: 10px;
+}
+
+.menuBtn {
+    composes: root from 'styles/click.module.css';
+
+    border: none;
+    background: linear-gradient(175.8deg, #181b25 3.42%, #10121d 96.59%);
+    height: 45px;
+    color: var(--color-white);
+    font-size: 1.4rem;
+    border-radius: 5px;
+}
+
+.menuBtn:hover {
+    transform: scale(1.03);
+}
+
+.menuBtnActive {
+    composes: menuBtn;
+
+    background: linear-gradient(180deg, #0931aa 0%, #6428c1 100%);
+}
