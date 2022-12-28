@@ -29,6 +29,7 @@ module.exports = {
         'no-restricted-exports': 'off',
         'import/order': 'off',
         'react-hooks/exhaustive-deps': 'error',
+        'no-nested-ternary': 'off',
     },
     settings: {
         'import/resolver': {

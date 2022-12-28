@@ -10,7 +10,6 @@ import UserTemplate from 'components/RootTemplates/User';
 import Homepage from 'pages/Homepage';
 import SignIn from 'pages/SignIn';
 import CreateAccount from 'pages/CreateAccount';
-import ForgotPassword from 'pages/ForgotPassword';
 import Dashboard from 'pages/Dashboard';
 import Budgets from 'pages/Budgets';
 import Goals from 'pages/Goals';
@@ -40,10 +39,6 @@ const App = () => {
         {
             path: PATHS.createAccount,
             element: <CreateAccount />,
-        },
-        {
-            path: PATHS.forgotPassword,
-            element: <ForgotPassword />,
         },
     ]);
 

@@ -68,15 +68,6 @@ const SignIn = () => {
                             defaultMessage="Zarejestruj się"
                         />
                     </Link>
-                    <Link
-                        to={PATHS.forgotPassword}
-                        className={classes.forgotPasswordLink}
-                    >
-                        <FormattedMessage
-                            id="signIn.forgotPassword"
-                            defaultMessage="Zapomniałeś hasła?"
-                        />
-                    </Link>
                 </div>
                 <div className={classes.button}>
                     <Button type="submit">

@@ -39,19 +39,19 @@
     color: var(--color-white);
 }
 
-.forgotPasswordLink {
-    color: var(--color-violet-light);
-    text-decoration: none;
-    font-size: 1.1rem;
-}
-
-.forgotPasswordLink:hover,
-.forgotPasswordLink:active,
-.forgotPasswordLink:focus {
-    color: var(--color-violet);
-}
-
 .button {
     display: flex;
     justify-content: flex-end;
+}
+
+@media (max-width: 1024px) {
+    .root {
+        width: 70%;
+    }
+}
+
+@media (max-width: 768px) {
+    .root {
+        width: 90%;
+    }
 }

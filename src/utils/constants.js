@@ -2,7 +2,6 @@ export const PATHS = {
     home: '/',
     signIn: '/sign-in',
     createAccount: '/create-account',
-    forgotPassword: '/forgot-password',
     dashboard: '/dashboard',
     categories: '/categories',
     budgets: '/budgets',
@@ -25,3 +24,6 @@ export const BUTTONS_APPEARANCE = {
     violetGradient: 'violetGradient',
     navyBlueSquare: 'navyBlueSquare',
 };
+
+export const DEVICE_DESKTOP = 1024;
+export const DEVICE_TABLE = 768;

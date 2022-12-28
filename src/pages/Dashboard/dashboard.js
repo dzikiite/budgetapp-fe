@@ -7,7 +7,7 @@ import classes from './dashboard.module.css';
 
 const Dashboard = () => (
     <div className={classes.root}>
-        <DashboardHeader />
+        <DashboardHeader classes={{ root: classes.dashboardHeaderRoot }} />
         <div className={classes.content}>
             <div className={classes.box}>
                 <BudgetsSummary />

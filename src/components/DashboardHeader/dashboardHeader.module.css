@@ -18,3 +18,7 @@
     width: 210px;
     height: 100%;
 }
+
+.root:empty {
+    display: none;
+}

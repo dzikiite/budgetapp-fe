@@ -18,6 +18,7 @@ const CreateAccount = () => {
 
     const { onSubmit } = useCreateAccount({ resetForm: reset });
 
+    // TODO: Validation
     return (
         <div className={classes.root}>
             <h3 className={classes.title}>

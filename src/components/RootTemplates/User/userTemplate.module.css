@@ -5,3 +5,11 @@
     padding: 45px 45px 45px max(330px, calc(20% + 45px));
     position: relative;
 }
+
+@media (max-width: 1024px) {
+    .root {
+        padding: 10px;
+        align-content: start;
+        row-gap: 15px;
+    }
+}

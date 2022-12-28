@@ -28,3 +28,14 @@
     column-gap: 17px;
     grid-template-columns: max-content max-content;
 }
+
+@media (max-width: 768px) {
+    .header {
+        padding: 25px 10px 0;
+    }
+
+    .buttons {
+        grid-template-columns: 1fr;
+        row-gap: 20px;
+    }
+}

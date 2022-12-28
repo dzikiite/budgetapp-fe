@@ -21,3 +21,15 @@
 .button {
     composes: button from 'pages/SignIn/signIn.module.css';
 }
+
+@media (max-width: 1024px) {
+    .root {
+        width: 70%;
+    }
+}
+
+@media (max-width: 768px) {
+    .root {
+        width: 90%;
+    }
+}
