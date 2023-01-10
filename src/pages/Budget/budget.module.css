@@ -46,3 +46,17 @@
 .row:first-child {
     border-bottom: 1px solid #3c3c3d;
 }
+
+@media (max-width: 768px) {
+    .totals {
+        grid-template-columns: 1fr;
+    }
+
+    .content {
+        padding: 15px;
+    }
+
+    .wrapper {
+        padding: 10px;
+    }
+}

@@ -6,8 +6,6 @@ export const PATHS = {
     categories: '/categories',
     budgets: '/budgets',
     budget: '/budget',
-    bills: '/bills',
-    goals: '/goals',
     statements: '/statements',
     account: '/account',
     password: '/password',

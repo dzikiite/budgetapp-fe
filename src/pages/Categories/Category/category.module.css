@@ -89,3 +89,14 @@
     color: #656667;
     font-size: 1.4rem;
 }
+
+@media (max-width: 768px) {
+    .categoryTitle::before,
+    .categoryTitle::after {
+        display: none;
+    }
+
+    .subcategoriesWrapper {
+        grid-template-columns: 1fr;
+    }
+}

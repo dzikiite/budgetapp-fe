@@ -75,3 +75,16 @@
     max-height: 85vh;
     height: 100%;
 }
+
+@media (max-width: 1024px) {
+    .root {
+        width: 80vw;
+    }
+}
+
+@media (max-width: 768px) {
+    .root {
+        width: 95vw;
+        padding: 15px;
+    }
+}

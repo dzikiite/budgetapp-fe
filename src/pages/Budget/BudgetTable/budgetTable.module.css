@@ -7,6 +7,8 @@
     display: grid;
     grid-template-columns: 1fr;
     border: 1px solid #0c31ab;
+    min-width: 700px;
+    width: 100%;
 }
 
 .labelRow {
@@ -75,4 +77,14 @@
 
     font-weight: 600;
     font-size: 1.6rem;
+}
+
+.root :global(#budget-table-simplebar) {
+    max-width: 85vw;
+    width: 100%;
+    overflow-y: hidden;
+}
+
+.root :global(#budget-table-simplebar .simplebar-content-wrapper) {
+    padding-right: 0;
 }

@@ -70,3 +70,19 @@
     color: #db00ff;
     font-size: 1.4rem;
 }
+
+@media (max-width: 1024px) {
+    .subcategories {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .subcategories {
+        grid-template-columns: 1fr;
+    }
+
+    .heading button {
+        width: auto;
+    }
+}

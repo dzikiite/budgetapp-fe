@@ -25,3 +25,10 @@
 
     background: linear-gradient(180deg, #0931aa 0%, #6428c1 100%);
 }
+
+@media (max-width: 768px) {
+    .root {
+        grid-auto-flow: row;
+        grid-template-columns: repeat(auto-fill, min-content);
+    }
+}

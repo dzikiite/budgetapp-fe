@@ -77,7 +77,7 @@ export const useStatements = () => {
 
     useEffect(() => {
         if (!selectedBudget) {
-            const firstBudgetId = budgets?.[5]?.budget_id;
+            const firstBudgetId = budgets?.[0]?.budget_id;
 
             setSelectedBudget(firstBudgetId);
         }

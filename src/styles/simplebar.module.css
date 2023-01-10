@@ -2,9 +2,18 @@
     padding-right: 25px;
 }
 
-:global(.simplebar-track) {
+:global(.simplebar-track.simplebar-verical) {
     width: 2px;
     background-color: transparent;
+}
+
+:global(.simplebar-track.simplebar-horizontal) {
+    width: 100%;
+    background-color: #0c0d16;
+}
+
+:global(.simplebar-track.simplebar-horizontal .simplebar-scrollbar) {
+    height: 11px;
 }
 
 :global(.simplebar-scrollbar:before) {

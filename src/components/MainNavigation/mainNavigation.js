@@ -52,24 +52,6 @@ const MainNavigation = () => {
                 path: PATHS.statements,
                 icon: 'document',
             },
-            {
-                id: 4,
-                name: formatMessage({
-                    id: 'mainNavigation.bills',
-                    defaultMessage: 'Rachunki',
-                }),
-                path: PATHS.bills,
-                icon: 'money',
-            },
-            {
-                id: 5,
-                name: formatMessage({
-                    id: 'mainNavigation.financialGoals',
-                    defaultMessage: 'Cele finansowe',
-                }),
-                path: PATHS.goals,
-                icon: 'chart',
-            },
             isMobileView && {
                 id: 6,
                 name: formatMessage({

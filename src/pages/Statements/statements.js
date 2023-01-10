@@ -1,5 +1,5 @@
 import React from 'react';
-import { useIntl } from 'react-intl';
+import { useIntl, FormattedMessage } from 'react-intl';
 
 import { useStatements } from './useStatements';
 
@@ -14,6 +14,9 @@ const Statements = () => {
 
     const { budgetsMenu, handleSelectBudget, statementData } = useStatements();
 
+    console.log('budgetsMenu: ', budgetsMenu);
+    console.log('statementData: ', statementData);
+
     return (
         <div className={classes.root}>
             <DashboardHeader
@@ -23,11 +26,22 @@ const Statements = () => {
                 })}
             />
             <div className={classes.content}>
-                <StatementsMenu
-                    budgets={budgetsMenu}
-                    handleSelectBudget={handleSelectBudget}
-                />
-                <ColumnChart options={statementData} />
+                {budgetsMenu.length > 0 ? (
+                    <>
+                        <StatementsMenu
+                            budgets={budgetsMenu}
+                            handleSelectBudget={handleSelectBudget}
+                        />
+                        <ColumnChart options={statementData} />
+                    </>
+                ) : (
+                    <p className={classes.noBudgets}>
+                        <FormattedMessage
+                            id="statements.noBudgets"
+                            defaultMessage="Nie posiadasz aktualnie zadnych dodanych budzetów."
+                        />
+                    </p>
+                )}
             </div>
         </div>
     );

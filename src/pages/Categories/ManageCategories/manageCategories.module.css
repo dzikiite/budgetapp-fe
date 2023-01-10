@@ -27,3 +27,9 @@
     grid-template-columns: 1fr;
     row-gap: 50px;
 }
+
+@media (max-width: 768px) {
+    .heading button {
+        width: auto;
+    }
+}

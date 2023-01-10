@@ -2,6 +2,7 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { number, shape, string, arrayOf, func } from 'prop-types';
 import { AiFillEdit } from 'react-icons/ai';
+import SimpleBar from 'simplebar-react';
 
 import { useBudgetTable } from './useBudgetTable';
 import { withCurrency } from 'utils/withCurrency';
@@ -41,109 +42,115 @@ const BudgetTable = (props) => {
 
     return (
         <div className={classes.root}>
-            {categoriesWithSums.map((category) => (
-                <div className={classes.table} key={category.category_id}>
-                    <div className={classes.labelRow}>
-                        <div className={classes.labelCol}>
-                            {category.category_name}
+            <SimpleBar id="budget-table-simplebar">
+                {categoriesWithSums.map((category) => (
+                    <div className={classes.table} key={category.category_id}>
+                        <div className={classes.labelRow}>
+                            <div className={classes.labelCol}>
+                                {category.category_name}
+                            </div>
+                            <div className={classes.labelCol}>
+                                <FormattedMessage
+                                    id="budgetTable.description"
+                                    defaultMessage="Opis"
+                                />
+                            </div>
+                            <div className={classes.labelCol}>
+                                <FormattedMessage
+                                    id="budgetTable.plan"
+                                    defaultMessage="Plan (budżet)"
+                                />
+                            </div>
+                            <div className={classes.labelCol}>
+                                <FormattedMessage
+                                    id="budgetTable.execution"
+                                    defaultMessage="Wykonanie"
+                                />
+                            </div>
+                            <div className={classes.labelCol}>
+                                <FormattedMessage
+                                    id="budgetTable.remains"
+                                    defaultMessage="Zostało"
+                                />
+                            </div>
                         </div>
-                        <div className={classes.labelCol}>
-                            <FormattedMessage
-                                id="budgetTable.description"
-                                defaultMessage="Opis"
-                            />
-                        </div>
-                        <div className={classes.labelCol}>
-                            <FormattedMessage
-                                id="budgetTable.plan"
-                                defaultMessage="Plan (budżet)"
-                            />
-                        </div>
-                        <div className={classes.labelCol}>
-                            <FormattedMessage
-                                id="budgetTable.execution"
-                                defaultMessage="Wykonanie"
-                            />
-                        </div>
-                        <div className={classes.labelCol}>
-                            <FormattedMessage
-                                id="budgetTable.remains"
-                                defaultMessage="Zostało"
-                            />
-                        </div>
-                    </div>
-                    {category.subcategories?.length > 0 ? (
-                        category.subcategories.map((subcategory) => (
-                            <div
-                                className={classes.row}
-                                key={subcategory.subcategory_id}
-                            >
-                                <div className={classes.col}>
-                                    {subcategory.subcategory_name}
-                                </div>
-                                <div className={classes.col}>
-                                    {subcategory.subcategory_description}
-                                </div>
-                                <div className={classes.col}>
-                                    {withCurrency(subcategory.allocated_amount)}
-                                    <AiFillEdit
-                                        onClick={() =>
-                                            handleEditSubcategoryAllocatedAmount(
-                                                {
+                        {category.subcategories?.length > 0 ? (
+                            category.subcategories.map((subcategory) => (
+                                <div
+                                    className={classes.row}
+                                    key={subcategory.subcategory_id}
+                                >
+                                    <div className={classes.col}>
+                                        {subcategory.subcategory_name}
+                                    </div>
+                                    <div className={classes.col}>
+                                        {subcategory.subcategory_description}
+                                    </div>
+                                    <div className={classes.col}>
+                                        {withCurrency(
+                                            subcategory.allocated_amount
+                                        )}
+                                        <AiFillEdit
+                                            onClick={() =>
+                                                handleEditSubcategoryAllocatedAmount(
+                                                    {
+                                                        name: subcategory.subcategory_name,
+                                                        amount: subcategory.allocated_amount,
+                                                        id: subcategory.subcategory_id,
+                                                    }
+                                                )
+                                            }
+                                            className={classes.editIcon}
+                                        />
+                                    </div>
+                                    <div className={classes.col}>
+                                        {withCurrency(
+                                            subcategory.total_outflows
+                                        )}
+                                        <AiFillEdit
+                                            onClick={() =>
+                                                handleEditSubcategoryOutflows({
                                                     name: subcategory.subcategory_name,
                                                     amount: subcategory.allocated_amount,
                                                     id: subcategory.subcategory_id,
-                                                }
-                                            )
-                                        }
-                                        className={classes.editIcon}
-                                    />
+                                                })
+                                            }
+                                            className={classes.editIcon}
+                                        />
+                                    </div>
+                                    <div className={classes.col}>
+                                        {withCurrency(subcategory.rest_amount)}
+                                    </div>
                                 </div>
-                                <div className={classes.col}>
-                                    {withCurrency(subcategory.total_outflows)}
-                                    <AiFillEdit
-                                        onClick={() =>
-                                            handleEditSubcategoryOutflows({
-                                                name: subcategory.subcategory_name,
-                                                amount: subcategory.allocated_amount,
-                                                id: subcategory.subcategory_id,
-                                            })
-                                        }
-                                        className={classes.editIcon}
-                                    />
-                                </div>
-                                <div className={classes.col}>
-                                    {withCurrency(subcategory.rest_amount)}
-                                </div>
+                            ))
+                        ) : (
+                            <p className={classes.noSubcategories}>
+                                <FormattedMessage
+                                    id="budgetTable.noSubcategories"
+                                    defaultMessage="Nie zdefiniowałeś jeszcze podkategorii wydatków"
+                                />
+                            </p>
+                        )}
+                        <div className={classes.totalsRow}>
+                            <div className={classes.totalsCol}>
+                                <FormattedMessage
+                                    id="budgetTable.total"
+                                    defaultMessage="Razem"
+                                />
                             </div>
-                        ))
-                    ) : (
-                        <p className={classes.noSubcategories}>
-                            <FormattedMessage
-                                id="budgetTable.noSubcategories"
-                                defaultMessage="Nie zdefiniowałeś jeszcze podkategorii wydatków"
-                            />
-                        </p>
-                    )}
-                    <div className={classes.totalsRow}>
-                        <div className={classes.totalsCol}>
-                            <FormattedMessage
-                                id="budgetTable.total"
-                                defaultMessage="Razem"
-                            />
-                        </div>
-                        <div className={classes.totalsCol}>
-                            {withCurrency(category.categoryTotalAllocated)}
-                        </div>
-                        <div className={classes.totalsCol}>
-                            {withCurrency(category.categoryTotalExecution)}
-                        </div>
-                        <div className={classes.totalsCol}>
-                            {withCurrency(category.categoryRestAmount)}
+                            <div className={classes.totalsCol}>
+                                {withCurrency(category.categoryTotalAllocated)}
+                            </div>
+                            <div className={classes.totalsCol}>
+                                {withCurrency(category.categoryTotalExecution)}
+                            </div>
+                            <div className={classes.totalsCol}>
+                                {withCurrency(category.categoryRestAmount)}
+                            </div>
                         </div>
                     </div>
-                </div>
-            ))}
+                ))}
+            </SimpleBar>
         </div>
     );
 };

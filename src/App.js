@@ -15,7 +15,6 @@ import Budgets from 'pages/Budgets';
 import Goals from 'pages/Goals';
 import Statements from 'pages/Statements';
 import AccountData from 'pages/AccountData';
-import Bills from 'pages/Bills';
 import ChangePassword from 'pages/ChangePassword';
 import Categories from 'pages/Categories';
 import Budget from 'pages/Budget';
@@ -70,10 +69,6 @@ const App = () => {
         {
             path: PATHS.password,
             element: <ChangePassword />,
-        },
-        {
-            path: PATHS.bills,
-            element: <Bills />,
         },
         {
             path: PATHS.categories,
