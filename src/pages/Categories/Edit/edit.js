@@ -19,11 +19,12 @@ const Edit = (props) => {
     });
     const { formatMessage } = useIntl();
 
-    const { isCategoryEdit, handleEditCategory } = useEdit({
-        type,
-        onSuccess: handleCancel,
-        ids,
-    });
+    const { isCategoryEdit, handleEditCategory, handleEditSubcategory } =
+        useEdit({
+            type,
+            onSuccess: handleCancel,
+            ids,
+        });
 
     return (
         <div className={classes.root}>
@@ -44,8 +45,11 @@ const Edit = (props) => {
             </div>
             <div className={classes.form}>
                 <Form
-                    // TODO Edit subcategory
-                    onSubmit={isCategoryEdit ? handleEditCategory : () => {}}
+                    onSubmit={
+                        isCategoryEdit
+                            ? handleEditCategory
+                            : handleEditSubcategory
+                    }
                     handleSubmit={handleSubmit}
                 >
                     <TextInput

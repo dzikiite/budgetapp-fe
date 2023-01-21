@@ -125,6 +125,25 @@ const editCategory = async (data, id) => {
     return category?.data;
 };
 
+const editSubcategory = async (data, id) => {
+    const subcategory = await apiClient.put(
+        `/subcategories/${id}`,
+        {
+            subcategory_name: data.name,
+            subcategory_description: data.description,
+        },
+        {
+            headers: {
+                ...(isSignedIn() && {
+                    authorization: `Bearer ${storage.getItem('user_token')}`,
+                }),
+            },
+        }
+    );
+
+    return subcategory?.data;
+};
+
 const getBudgets = async () => {
     const budgets = await apiClient.get('/budgets', {
         headers: {
@@ -264,4 +283,5 @@ export default {
     updateAllocatedAmount,
     addOutflow,
     deleteOutflow,
+    editSubcategory,
 };
