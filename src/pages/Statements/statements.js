@@ -14,9 +14,6 @@ const Statements = () => {
 
     const { budgetsMenu, handleSelectBudget, statementData } = useStatements();
 
-    console.log('budgetsMenu: ', budgetsMenu);
-    console.log('statementData: ', statementData);
-
     return (
         <div className={classes.root}>
             <DashboardHeader

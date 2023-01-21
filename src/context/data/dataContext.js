@@ -15,7 +15,7 @@ const DataContextProvider = ({ children }) => {
     const [{ isSignedIn }] = useUserContext();
     const { handleError } = useError();
 
-    const { data, error } = useQuery({
+    const { data, error, loading } = useQuery({
         queryKey: ['categories'],
         queryFn: getCategories,
         onError: () => {
@@ -48,8 +48,8 @@ const DataContextProvider = ({ children }) => {
     }, [data, error]);
 
     const contextValue = useMemo(
-        () => [{ budgets, categories }],
-        [budgets, categories]
+        () => [{ budgets, categories, categoriesLoading: loading }],
+        [budgets, categories, loading]
     );
 
     return (

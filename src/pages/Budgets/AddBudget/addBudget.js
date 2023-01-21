@@ -31,6 +31,7 @@ const AddBudget = (props) => {
                     defaultMessage: 'Wprowadź nazwę budżetu',
                 })}
                 register={register}
+                registerObject={{ required: true }}
                 placeholder={formatMessage({
                     id: 'addBudget.enterBudget',
                     defaultMessage: 'Wprowadź nazwę budżetu',

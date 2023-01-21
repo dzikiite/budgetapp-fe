@@ -8,7 +8,6 @@ export const PATHS = {
     budget: '/budget',
     statements: '/statements',
     account: '/account',
-    password: '/password',
 };
 
 export const LOCALES = {
