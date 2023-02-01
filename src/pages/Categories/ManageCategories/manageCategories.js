@@ -19,7 +19,11 @@ const ManageCategories = (props) => {
         handleEditSubcategory,
     } = props;
 
-    const { suggestedCategoryMock } = useManageCategories();
+    const {
+        suggestedCategoryMock,
+        handleDeleteSubcategory,
+        handleDeleteCategory,
+    } = useManageCategories();
 
     return (
         <div className={classes.root}>
@@ -63,6 +67,8 @@ const ManageCategories = (props) => {
                               handleEditCategory={handleEditCategory}
                               handleEditSubcategory={handleEditSubcategory}
                               handleAddSubcategory={handleAddSubcategory}
+                              handleDeleteSubcategory={handleDeleteSubcategory}
+                              handleDeleteCategory={handleDeleteCategory}
                           />
                       ))
                     : null}

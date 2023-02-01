@@ -144,6 +144,30 @@ const editSubcategory = async (data, id) => {
     return subcategory?.data;
 };
 
+const deleteSubcategory = async (id) => {
+    const subcategory = await apiClient.delete(`/subcategories/${id}`, {
+        headers: {
+            ...(isSignedIn() && {
+                authorization: `Bearer ${storage.getItem('user_token')}`,
+            }),
+        },
+    });
+
+    return subcategory?.data;
+};
+
+const deleteCategory = async (id) => {
+    const category = await apiClient.delete(`/categories/${id}`, {
+        headers: {
+            ...(isSignedIn() && {
+                authorization: `Bearer ${storage.getItem('user_token')}`,
+            }),
+        },
+    });
+
+    return category?.data;
+};
+
 const getBudgets = async () => {
     const budgets = await apiClient.get('/budgets', {
         headers: {
@@ -284,4 +308,6 @@ export default {
     addOutflow,
     deleteOutflow,
     editSubcategory,
+    deleteSubcategory,
+    deleteCategory,
 };

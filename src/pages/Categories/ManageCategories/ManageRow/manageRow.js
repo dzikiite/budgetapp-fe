@@ -15,6 +15,8 @@ const ManageRow = (props) => {
         handleAddSubcategory,
         handleEditCategory,
         handleEditSubcategory,
+        handleDeleteSubcategory,
+        handleDeleteCategory,
     } = props;
 
     return (
@@ -63,18 +65,33 @@ const ManageRow = (props) => {
                         key={category.category_template_id}
                     >
                         <span>{category.category_name}</span>
-                        <Button
-                            onClick={() =>
-                                handleEditCategory({
-                                    categoryId: category.category_template_id,
-                                })
-                            }
-                        >
-                            <FormattedMessage
-                                id="editRow.edit"
-                                defaultMessage="Edytuj"
-                            />
-                        </Button>
+                        <div className={classes.categoryActions}>
+                            <Button
+                                onClick={() =>
+                                    handleEditCategory({
+                                        categoryId:
+                                            category.category_template_id,
+                                    })
+                                }
+                            >
+                                <FormattedMessage
+                                    id="editRow.edit"
+                                    defaultMessage="Edytuj"
+                                />
+                            </Button>
+                            <Button
+                                onClick={() =>
+                                    handleDeleteCategory(
+                                        category.category_template_id
+                                    )
+                                }
+                            >
+                                <FormattedMessage
+                                    id="editRow.delete"
+                                    defaultMessage="Usuń"
+                                />
+                            </Button>
+                        </div>
                     </div>
                     <div className={classes.subcategories}>
                         {category.subcategories_templates.map(
@@ -95,23 +112,39 @@ const ManageRow = (props) => {
                                                 subcategory.subcategory_description
                                             }
                                         </span>
-                                        <button
-                                            type="button"
-                                            className={classes.button}
-                                            onClick={() =>
-                                                handleEditSubcategory({
-                                                    subcategoryId:
-                                                        subcategory.subcategory_template_id,
-                                                    categoryId:
-                                                        category.category_template_id,
-                                                })
-                                            }
-                                        >
-                                            <FormattedMessage
-                                                id="addRow.edit"
-                                                defaultMessage="Edytuj"
-                                            />
-                                        </button>
+                                        <div className={classes.actions}>
+                                            <button
+                                                type="button"
+                                                className={classes.button}
+                                                onClick={() =>
+                                                    handleEditSubcategory({
+                                                        subcategoryId:
+                                                            subcategory.subcategory_template_id,
+                                                        categoryId:
+                                                            category.category_template_id,
+                                                    })
+                                                }
+                                            >
+                                                <FormattedMessage
+                                                    id="addRow.edit"
+                                                    defaultMessage="Edytuj"
+                                                />
+                                            </button>
+                                            <button
+                                                type="button"
+                                                className={classes.buttonRed}
+                                                onClick={() =>
+                                                    handleDeleteSubcategory(
+                                                        subcategory.subcategory_template_id
+                                                    )
+                                                }
+                                            >
+                                                <FormattedMessage
+                                                    id="addRow.delete"
+                                                    defaultMessage="Usuń"
+                                                />
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             )
@@ -175,4 +208,6 @@ ManageRow.propTypes = {
     handleAddSubcategory: func,
     handleEditCategory: func,
     handleEditSubcategory: func,
+    handleDeleteSubcategory: func,
+    handleDeleteCategory: func,
 };
